@@ -43,6 +43,7 @@ module GitHubChangelogGenerator
       pulls
       release_branch
       release_url
+      require
       simple_list
       since_tag
       ssl_ca_file

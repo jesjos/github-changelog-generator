@@ -6,6 +6,7 @@ module GitHubChangelogGenerator
     #
     # @return [String] Generated change log file
     def compound_changelog
+      load_configured_files
       fetch_and_filter_tags
       fetch_issues_and_pr
 
@@ -26,6 +27,10 @@ module GitHubChangelogGenerator
       log += credit_line
 
       @log = log
+    end
+
+    def load_configured_files
+      options[:require].each { |f| require f }
     end
 
     # @param [Array] issues List of issues on sub-section
